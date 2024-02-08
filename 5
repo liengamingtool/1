@@ -1,0 +1,374 @@
+error_reporting(0);
+system('clear');date_default_timezone_set('Asia/Ho_Chi_Minh');
+function GET($host,$tsm)
+{
+$mr = curl_init();
+curl_setopt_array($mr, array(
+CURLOPT_URL => $host,
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_HTTPHEADER => $tsm));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2,true);
+return $json;
+}
+function POST($host,$tsm1,$data)
+{
+$mr = curl_init();
+curl_setopt_array($mr, array(
+CURLOPT_URL => $host,
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_POSTFIELDS => $data,
+CURLOPT_HTTPHEADER => $tsm1));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2,true);
+return $json;
+}
+function G($url,$head){
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_URL => $url,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_HTTPHEADER => $head,
+  CURLOPT_HEADER=>true));
+$mr2 = curl_exec($mr); curl_close($mr);
+return $mr2;
+}
+//$ck=readline('nhập cookie : ');
+#$user="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Kiwi Chrome/68.0.3438.0 Safari/537.36";
+//$ck="datr=pEx-YeJyzXZzr3-meMwP09yv;sb=pEx-YcnY6xyUsvIU2Kygo7ld;locale=vi_VN;fr=0hexaDNaXvpnsgq52.AWW3FKs2Ae-PJsAsbVELV8VYTsk.Bhfkyk.0O.AAA.0.0.Bhf3w7.AWWxbGBzPoM;c_user=100073776460585;xs=12%3AV5_04CzyklUO4g%3A2%3A1635744828%3A-1%3A16010;dpr=3;spin=r.1004673413_b.trunk_t.1636033870_s.1_v.2_;m_pixel_ratio=3;x-referer=eyJyIjoiL3Byb2ZpbGUucGhwIiwiaCI6Ii9wcm9maWxlLnBocCIsInMiOiJtIn0%3D;wd=360x652";
+echo "\033[1;32m     ╔════════════════════════╗\n";
+echo "\033[1;32m     ║     \033[1;36mThông Tin ADMIN    \033[1;32m║\n";
+echo "\033[1;32m     ╚════════════════════════╝\n";
+usleep(50000);
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mFB: Liên Hack Gaming\n"; 
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mZALO: 0365214842\n";
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mYOUTUBE: LIÊN GAMING TOOL\n"; 
+echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook\n"; 
+echo "\033[1;31m───────────────────────────────────────────────────────────\n";
+
+echo "\033[1;35m[1] Chạy Bằng Tài Khoản Và Mật Khẩu\n";
+echo "\033[1;31m[2] Chạy Bằng Cookie Fb Ramdom Acc Không Lưu Cookie\n";
+echo "\033[1;33m[3] Chạy Bằng Cookie Fb Ramdom Acc Có Lưu Cookie\n";
+echo "\033[1;36mNhập => ";
+$chon=trim(fgets(STDIN));
+system('clear');
+echo "\033[1;32m     ╔════════════════════════╗\n";
+echo "\033[1;32m     ║     \033[1;36mThông Tin ADMIN    \033[1;32m║\n";
+echo "\033[1;32m     ╚════════════════════════╝\n";
+usleep(50000);
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mFB: Liên Hack Gaming\n"; 
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mZALO: 0365214842\n";
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mYOUTUBE: LIÊN GAMING TOOL\n"; 
+echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook\n"; 
+echo "\033[1;31m───────────────────────────────────────────────────────────\n";
+
+if($chon=="1"){echo "\033[1;37mNhập Cookie Fb : ";
+$ck=trim(fgets(STDIN));}
+if($chon=="3"){
+	if (file_exists("cookies.json")){
+  /// đã có file cookies.json
+// tiếp tục kiểm tra xem file đấy đã có lưu cookie chưa
+  if (!empty(file_get_contents("cookies.json"))){
+echo "\033[1;36m[1] Xoá File Cookie Và Nhập Lại\n";
+echo "\033[1;32m[2] Dùng Cookie Cũ Và chạy Tool\n";
+echo "\033[1;35mVui Lòng Nhâp => ";
+$enter_cookie=trim(fgets(STDIN));
+
+  } else {
+   $enter_cookie = 1;
+  }
+
+} else {
+  $enter_cookie = 1;
+}
+if ($enter_cookie == 1){
+$array_cookies = array();
+$i=0;
+while(true){
+	$d=rand(1,7);
+echo "\033[1;3".$d."mNhập Cookie (Trực tiếp bấm Enter để skip): ";
+$c=trim(fgets(STDIN));
+if (empty($c)){
+  break;
+}
+$array_cookies[$i]["cookie"] = $c; 
+$i++;
+}
+
+file_put_contents("cookies.json", json_encode($array_cookies));
+}
+echo "\033[1;31mnhập ví whypay [nếu ko thì enter] : ";
+	$vi=trim(fgets(STDIN));
+echo "\033[1;36mnhập time delay mỗi job : ";
+$delay=trim(fgets(STDIN));
+echo "\033[1;31mnhập user agent : ";
+$user=trim(fgets(STDIN));
+system('clear');
+
+$next=0;
+$cookies = json_decode(file_get_contents("cookies.json"),1);
+echo "\033[1;32m     ╔════════════════════════╗\n";
+echo "\033[1;32m     ║     \033[1;36mThông Tin ADMIN    \033[1;32m║\n";
+echo "\033[1;32m     ╚════════════════════════╝\n";
+usleep(50000);
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mFB: Liên Hack Gaming\n"; 
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mZALO: 0365214842\n";
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mYOUTUBE: LIÊN GAMING TOOL\n"; 
+echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook\n"; 
+echo "\033[1;31m───────────────────────────────────────────────────────────\n";
+
+while(1){
+	##$next++;
+$cookie= $cookies[$next]["cookie"];
+if (empty($cookie)){
+  $next = 0;
+  $cookie= $cookies[$next]["cookie"];
+}
+
+$head_fb=["Host:mbasic.facebook.com","cache-control:max-age=0","upgrade-insecure-requests:1","save-data:on","user-agent:$user","accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-fetch-site:cross-site","sec-fetch-mode:navigate","sec-fetch-user:?1","sec-fetch-dest:document","accept-language:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5","cookie:$cookie"];
+$login=["Host:gomlua.com","Content-Length:60","Content-Type:application/json","User-Agent:$user"];
+///echo "$cookies \n";
+
+	$to=G("https://m.facebook.com/v2.9/dialog/oauth?app_id=901999673240219&cbt=1621310784808&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df37e196fc0296%26domain%3Dgomlua.com%26origin%3Dhttps%253A%252F%252Fgomlua.com%252Ff1784b0562c04f4%26relation%3Dopener&client_id=901999673240219&display=touch&domain=gomlua.com&e2e=%7B%7D&enable_profile_selector=true&fallback_redirect_uri=https%3A%2F%2Fgomlua.com%2F%23%2Fauth%2Flogin&locale=en_US&logger_id=f2df7cbb4ea2afc&origin=2&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df29221fe01f5f%26domain%3Dgomlua.com%26origin%3Dhttps%253A%252F%252Fgomlua.com%252Ff1784b0562c04f4%26relation%3Dopener%26frame%3Df27e7cb7f4262e4&response_type=token%2Csigned_request%2Cgraph_domain&return_scopes=true&scope=email%2Cpublic_profile&sdk=joey&version=v2.9",$head_fb);
+$token=explode('&',explode('access_token=',$to)[1])[0];
+$login1=["Host:gomlua.com","Connection:keep-alive","Save-Data:on","Accept:application/json, text/plain, */*","content-type:application/json; charset=utf-8","User-Agent:$user"];
+$get_tk=get("https://gomlua.com/user/login?os=web&facebook_token=$token",$login1);
+$tk=$get_tk["data"]["app_token"];
+$tsm=array("Host:gomlua.com",
+"Connection:keep-alive",
+"app_token:$tk",
+"User-Agent:$user",
+"sec-ch-ua-mobile:?1",);
+/////////////////////////
+$in4=get("https://gomlua.com/user/info?os=web",$tsm);
+$kt=$in4['status'];$email=$in4['data']['email'];$ten=$in4['data']['username'];$lua=$in4['data']['current_paddy'];
+
+/*if($kt=="1"){
+	echo "\033[1;33macc : $ten \033[1;30m| \033[1;36msố lúa : $lua \n";
+	##for($c=0;$c<43;$c++){$rand = rand(1,7);echo "\033[1;3".$rand."m—";usleep(25000);}echo "\n";
+	}else{echo "\033[1;35msai dữ liệu \r";sleep(1);}*/
+	
+////////////////////////
+while(1){
+	
+	$tg=date('H:i:s');
+	##while(1){
+		$cp=G("https://mbasic.facebook.com/checkpoint/1501092823525282",$head_fb);
+$check=G("https://mbasic.facebook.com",$head_fb);
+$die=strpos($cp,"Tài khoản của bạn đã bị vô hiệu hóa");
+if ($die==true){echo("\033[1;37m$ten Đã Bị Block!!!\n");
+    exit;
+}
+$loogut=strpos($check,"Đăng nhập Facebook");
+if ($loogut==true){echo("__Cookie $ten Die!!!\n");
+ 
+    exit;
+}
+$like=get("https://gomlua.com/cpi/listCampaignFacebook?os=web&type=like_post",$tsm);
+$id=$like['data']['list']['0']['campaign_id'];$idjob=$like['data']['list']['0']['link_id'];$type=$like['data']['list']['0']['react_type'];
+$size=$like["data"]["size"];
+if($like==""){exit("cookie die \n");}
+if($size=="0" or $size==""){echo "\033[1;31m$ten Hết Job Đang Chuyển Acc __________\r";break;}
+#echo "\033[1;34m$type \033[1;30m| \033[1;31m$idjob \033[1;30m| \033[1;36m$id \n";
+/////////
+$dom=rand(1,7);
+#if($id>0){break;}else{echo "\033[1;3".$dom."m$ten hết job                   \r";}}
+
+echo "\033[1;32m$ten còn $size job __________\r";
+sleep(1);
+$checkgl=GET("https://gomlua.com/cpi/checkLinkLike?os=web&link_id=$idjob",$tsm);
+if ($checkgl["status"]==1){
+	sleep(1);
+	echo "\033[1;36m$ten đang làm job \033[1;37m$idjob __________\r";
+if ($type=="LIKE"){$o=1;}
+if ($type=="LOVE"){$o=2;}
+if ($type=="CARE"){$o=3;}
+if ($type=="HAHA"){$o=4;}
+if ($type=="WOW"){$o=5;}
+if ($type=="SAD"){$o=6;}
+if ($type=="ANGRY"){$o=7;}
+$full=G("https://mbasic.facebook.com/$id",$head_fb);
+$l=strpos($full,"location");
+if ($l==true){
+$link_full=explode('rdr',explode("location: ",$full)[1])[0];
+$truy=G($link_full."rdr",$head_fb);
+$cx=explode('"',explode("/reactions/picker/?",$truy)[1])[0];
+$bcx=G("https://mbasic.facebook.com/reactions/picker/?".htmlspecialchars_decode($cx),$head_fb);
+$node_cx=explode('"',explode("/ufi/reaction/?",$bcx)[$o])[0];
+$thuc=G("https://mbasic.facebook.com/ufi/reaction/?".htmlspecialchars_decode($node_cx),$head_fb);
+echo "\033[1;36m$ten chuẩn bị nhận lúa __________\r";
+$nhận=GET("https://gomlua.com/cpi/likeSuccess?os=web&link_id=$idjob&like_old=1",$tsm);
+if ($nhận["status"]==1){$jb++;
+$du=$nhận["data"]["current_paddy"];
+if(!empty($vi)){
+if ($du>=10000){$rut=get("https://gomlua.com/card/transferWhypay?os=web&amount=$du&whypay_code=$vi",$tsm);
+if ($rut["message"]=="Thành công"){
+echo "\033[1;35mrút $du thành công về ví $vi \n";}else{echo "\033[1;32m$ten rút thất bại về ví $vi\n";sleep(1);}}}
+echo "\033[1;31m[$jb] \033[1;33m[$tg] \033[1;32m[$type] \033[1;35m[$idjob] \033[1;36m[+40] \033[1;37m[$du] \033[1;32m[$ten]\n";
+#echo " \033[1;37m≠=================≠\n";
+for($i=$delay;$i>-1;$i--){
+	echo "\r\033[1;31m__đợi $i .       \r";usleep(200000);
+	echo "\r\033[1;33m__đợi $i ..      \r";usleep(200000);
+	echo "\r\033[1;36m__đợi $i ...     \r";usleep(200000);
+	echo "\r\033[1;32m__đợi $i ....    \r";usleep(200000);
+	echo "\r\033[1;37m__đợi $i .....   \r";usleep(200000);
+	}
+	
+}else{$report=GET("https://gomlua.com/cpi/reportBug?site=web&cpi_id=$idjob&type=LIKE&report_type=PADDY",$tsm);
+echo $report["message"]." $idjob __________\r";sleep(1);
+}}else{$report=GET("https://gomlua.com/cpi/reportBug?site=web&cpi_id=$idjob&type=LIKE&report_type=LINK",$tsm);
+echo $report["message"]." $idjob __________\r";sleep(1);
+
+}}else{$report=GET("https://gomlua.com/cpi/reportBug?site=web&cpi_id=$idjob&type=LIKE_TOKEN&report_type=OTHER",$tsm);
+echo $report["message"]." $idjob __________ \r";sleep(1);
+}}
+$next++;
+}}
+if($chon=="2") {
+echo "\033[1;31mnhập số acc: ";
+$acc = trim(fgets(STDIN));
+$cooki = [];
+$dem = 1;
+//Giai đoạn tạo mảng cookie
+while (true){
+	$mau=rand(1,7);
+echo "\033[1;3".$mau."mNhập Cookie $dem".": ";
+$cook[$dem] = trim(fgets(STDIN));
+array_push($cooki,"$cook[$dem]");
+$dem++;
+if($dem > $acc){
+break;
+}}
+echo "\033[1;31mnhập ví whypay [nếu ko thì enter] : ";
+	$vi=trim(fgets(STDIN));
+echo "\033[1;36mnhập time delay mỗi job : ";
+$delay=trim(fgets(STDIN));
+echo "\033[1;31mnhập user agent : ";
+$user=trim(fgets(STDIN));
+}
+system('clear');
+echo "\033[1;32m     ╔════════════════════════╗\n";
+echo "\033[1;32m     ║     \033[1;36mThông Tin ADMIN    \033[1;32m║\n";
+echo "\033[1;32m     ╚════════════════════════╝\n";
+usleep(50000);
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mFB: Liên Hack Gaming\n"; 
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mZALO: 0365214842\n";
+echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mYOUTUBE: LIÊN GAMING TOOL\n"; 
+echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook\n"; 
+echo "\033[1;31m───────────────────────────────────────────────────────────\n";
+
+home:
+if($chon=="2"){
+$ck = $cooki[array_rand($cooki,1)];}
+$head_fb=["Host:mbasic.facebook.com","cache-control:max-age=0","upgrade-insecure-requests:1","save-data:on","user-agent:$user","accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","sec-fetch-site:cross-site","sec-fetch-mode:navigate","sec-fetch-user:?1","sec-fetch-dest:document","accept-language:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5","cookie:$ck"];
+$login=["Host:gomlua.com","Content-Length:60","Content-Type:application/json","User-Agent:$user"];
+if($chon=="1") {
+	him:
+	echo "\033[1;34mnhập tài khoản : ";
+	$tk=trim(fgets(STDIN));
+	echo "\033[1;35mnhập mật khẩu : ";
+	$mk=trim(fgets(STDIN));
+	echo "\033[1;32mnhập ví whypay [nếu ko thì enter] : ";
+	$vi=trim(fgets(STDIN));
+	echo "\033[1;36mnhập time delay mỗi job : ";
+$delay=trim(fgets(STDIN));
+echo "\033[1;31mnhập user agent : ";
+$user=trim(fgets(STDIN));
+system('clear');
+$data_tk='{"email":"'.$tk.'","password":"'.$mk.'"}';
+$get_tk=post("https://gomlua.com/user/loginV2?os=web",$login,$data_tk);
+if($get_tk==""){goto him;}
+}
+if($chon=="2"){
+	$to=G("https://m.facebook.com/v2.9/dialog/oauth?app_id=901999673240219&cbt=1621310784808&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df37e196fc0296%26domain%3Dgomlua.com%26origin%3Dhttps%253A%252F%252Fgomlua.com%252Ff1784b0562c04f4%26relation%3Dopener&client_id=901999673240219&display=touch&domain=gomlua.com&e2e=%7B%7D&enable_profile_selector=true&fallback_redirect_uri=https%3A%2F%2Fgomlua.com%2F%23%2Fauth%2Flogin&locale=en_US&logger_id=f2df7cbb4ea2afc&origin=2&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df29221fe01f5f%26domain%3Dgomlua.com%26origin%3Dhttps%253A%252F%252Fgomlua.com%252Ff1784b0562c04f4%26relation%3Dopener%26frame%3Df27e7cb7f4262e4&response_type=token%2Csigned_request%2Cgraph_domain&return_scopes=true&scope=email%2Cpublic_profile&sdk=joey&version=v2.9",$head_fb);
+$token=explode('&',explode('access_token=',$to)[1])[0];
+$login1=["Host:gomlua.com","Connection:keep-alive","Save-Data:on","Accept:application/json, text/plain, */*","content-type:application/json; charset=utf-8","User-Agent:$user"];
+$get_tk=get("https://gomlua.com/user/login?os=web&facebook_token=$token",$login1);
+}
+$tk=$get_tk["data"]["app_token"];
+
+$tsm=array("Host:gomlua.com",
+"Connection:keep-alive",
+"app_token:$tk",
+"User-Agent:$user",
+"sec-ch-ua-mobile:?1",);
+/////////////////////////
+$in4=get("https://gomlua.com/user/info?os=web",$tsm);
+$kt=$in4['status'];$email=$in4['data']['email'];$ten=$in4['data']['username'];$lua=$in4['data']['current_paddy'];
+if($chon=="1"){
+if($kt=="1"){
+	echo "\033[1;33macc : $ten \033[1;30m| \033[1;36msố lúa : $lua \n";
+	##for($c=0;$c<43;$c++){$rand = rand(1,7);echo "\033[1;3".$rand."m—";usleep(25000);}echo "\n";
+	}else{echo "\033[1;35msai dữ liệu \r";sleep(1);goto home;}
+	}
+////////////////////////
+while(1){
+	
+	$tg=date('H:i:s');
+	while(1){
+		$cp=G("https://mbasic.facebook.com/checkpoint/1501092823525282",$head_fb);
+$check=G("https://mbasic.facebook.com",$head_fb);
+$die=strpos($cp,"Tài khoản của bạn đã bị vô hiệu hóa");
+if ($die==true){echo("\033[1;37m$ten Đã Bị Block!!!\n");
+    exit;
+}
+$loogut=strpos($check,"Đăng nhập Facebook");
+if ($loogut==true){echo("__Cookie $ten Die!!!\n");
+ 
+    exit;
+}
+$like=get("https://gomlua.com/cpi/listCampaignFacebook?os=web&type=like_post",$tsm);
+$id=$like['data']['list']['0']['campaign_id'];$idjob=$like['data']['list']['0']['link_id'];$type=$like['data']['list']['0']['react_type'];
+if($like==""){exit("cookie die \n");}
+#echo "\033[1;34m$type \033[1;30m| \033[1;31m$idjob \033[1;30m| \033[1;36m$id \n";
+/////////
+$dom=rand(1,7);
+if($id>0){break;}else{echo "\033[1;3".$dom."m$ten hết job __________\r";goto home;}}
+echo "\033[1;32m$ten còn ".$size=$like["data"]["size"]." job __________\r";
+sleep(1);
+$checkgl=GET("https://gomlua.com/cpi/checkLinkLike?os=web&link_id=$idjob",$tsm);
+if ($checkgl["status"]==1){
+	sleep(1);
+	echo "\033[1;36m$ten đang làm job \033[1;37m$idjob                  \r";
+if ($type=="LIKE"){$o=1;}
+if ($type=="LOVE"){$o=2;}
+if ($type=="CARE"){$o=3;}
+if ($type=="HAHA"){$o=4;}
+if ($type=="WOW"){$o=5;}
+if ($type=="SAD"){$o=6;}
+if ($type=="ANGRY"){$o=7;}
+$full=G("https://mbasic.facebook.com/$id",$head_fb);
+$l=strpos($full,"location");
+if ($l==true){
+$link_full=explode('rdr',explode("location: ",$full)[1])[0];
+$truy=G($link_full."rdr",$head_fb);
+$cx=explode('"',explode("/reactions/picker/?",$truy)[1])[0];
+$bcx=G("https://mbasic.facebook.com/reactions/picker/?".htmlspecialchars_decode($cx),$head_fb);
+$node_cx=explode('"',explode("/ufi/reaction/?",$bcx)[$o])[0];
+$thuc=G("https://mbasic.facebook.com/ufi/reaction/?".htmlspecialchars_decode($node_cx),$head_fb);
+echo "\033[1;36m$ten chuẩn bị nhận lúa __________\r";
+$nhận=GET("https://gomlua.com/cpi/likeSuccess?os=web&link_id=$idjob&like_old=1",$tsm);
+if ($nhận["status"]==1){$jb++;
+$du=$nhận["data"]["current_paddy"];
+if(!empty($vi)){
+if ($du>=10000){$rut=get("https://gomlua.com/card/transferWhypay?os=web&amount=$du&whypay_code=$vi",$tsm);
+if ($rut["message"]=="Thành công"){
+echo "\033[1;35mrút $du thành công về ví $vi \n";}else{echo "\033[1;32m$ten rút thất bại về ví $vi\n";sleep(1);}}}
+echo "\033[1;31m[$jb] \033[1;33m[$tg] \033[1;32m[$type] \033[1;35m[$idjob] \033[1;36m[+40] \033[1;37m[$du] \033[1;32m[$ten]\n";
+#echo " \033[1;37m≠=================≠\n";
+for($i=$delay;$i>-1;$i--){
+	echo "\r\033[1;31m__đợi $i .       \r";usleep(200000);
+	echo "\r\033[1;33m__đợi $i ..      \r";usleep(200000);
+	echo "\r\033[1;36m__đợi $i ...     \r";usleep(200000);
+	echo "\r\033[1;32m__đợi $i ....    \r";usleep(200000);
+	echo "\r\033[1;37m__đợi $i .....   \r";usleep(200000);
+	}
+	if($chon=="2"){goto home;}
+}else{$report=GET("https://gomlua.com/cpi/reportBug?site=web&cpi_id=$idjob&type=LIKE&report_type=PADDY",$tsm);
+if($chon=="2"){echo $report["message"]." $idjob __________\r";sleep(1);goto home;}if($chon=="1"){echo $report["message"]." $idjob __________\r";sleep(1);}
+}}else{$report=GET("https://gomlua.com/cpi/reportBug?site=web&cpi_id=$idjob&type=LIKE&report_type=LINK",$tsm);
+if($chon=="2"){echo $report["message"]." $idjob __________\r";sleep(1);goto home;
+}if($chon=="1"){echo $report["message"]." $idjob __________\r";sleep(1);}
+}}else{$report=GET("https://gomlua.com/cpi/reportBug?site=web&cpi_id=$idjob&type=LIKE_TOKEN&report_type=OTHER",$tsm);
+if($chon=="2"){echo $report["message"]." $idjob __________\r";sleep(1);goto home;}if($chon=="1"){echo $report["message"]." $idjob __________\r";sleep(1);}
+}}
