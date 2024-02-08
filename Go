@@ -1,8 +1,8 @@
+
 $ngay = date("d");
 $thang = date("m");
 $nam = date("Y");
- 
- 
+
 $red = "\033[1;31m";
  
 $green = "\033[1;32m";
@@ -18,7 +18,7 @@ $nau = "\033[1;36m";
 $trang = "\033[1;37m";
  
 $cam = "\e[38;5;208m";
- 
+
 $loijob = [];
  
 $loitk = [];
@@ -116,7 +116,7 @@ usleep(50000);
 echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mFB: Liên Hack Gaming\n"; 
 echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mZALO: 0365214842\n";
 echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mYOUTUBE: LIÊN GAMING TOOL\n"; 
-echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook
+echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook\n";
 echo "\033[1;31m───────────────────────────────────────────────────────────\n";
 
 echo "🌀Nhập authorization : ";
@@ -339,5 +339,4 @@ while (true) {
  
  
 }
- 
  
