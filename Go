@@ -117,7 +117,7 @@ echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mFB: Liên Hac
 echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mZALO: 0365214842\n";
 echo"■\033[1;31m[\033[1;37m=.=\033[1;31m] \033[1;37m=> \033[1;32mYOUTUBE: LIÊN GAMING TOOL\n"; 
 echo"\033[1;31m[!] Mọi thắc mắc lên hệ qua Facebook
-echo"\033[1;35m hôm nay ngày \033[1;32m $ngay \033[1;32m tháng $thang \033[1;34m năm $nam \n";
+echo"\033[1;35m hôm nay ngày $ngay tháng $thang năm $nam \n";
 echo "\033[1;31m───────────────────────────────────────────────────────────\n";
 
 echo "🌀Nhập authorization : ";
