@@ -116,7 +116,7 @@ echo $dragonx . "Nhập ". $vang . "[". $trang . "2". $vang . "]". $luc . " Nh�
     	} else {
     	    break;
     	}
-    } system('clear');
+    } 
     if (!file_exists("LIÊN GAMING_Authorization_Golike.txt")) {
         echo $dragonx . "Nhập Authorization Golike: " . $vang;
         $Authorization = trim(fgets(STDIN));
