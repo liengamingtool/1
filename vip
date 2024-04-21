@@ -1,3 +1,4 @@
+
 error_reporting(0);
 session_start();
 
@@ -455,4 +456,62 @@ function GetPendingCoin($Authorization){
         return array("pending_coin" => null, "hold_coin" => null);
     }
 }
-funct
+function LoginGolike($Authorization){
+    $url = 'https://gateway.golike.net/api/users/me';
+    $headers = array(
+        'Accept: application/json, text/plain, */*',
+        'Accept-Language: vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Authorization: ' . $Authorization . '',
+        'Cache-Control: no-cache',
+        'Content-Type: application/json;charset=utf-8',
+        'Origin: https://app.golike.net',
+        'Pragma: no-cache',
+        'Referer: https://app.golike.net/',
+        'Sec-Ch-Ua: "Not_A Brand";v="8", "Chromium";v="120"',
+        'Sec-Ch-Ua-Mobile: ?1',
+        'Sec-Ch-Ua-Platform: "Android"',
+        'Sec-Fetch-Dest: empty',
+        'Sec-Fetch-Mode: cors',
+        'Sec-Fetch-Site: same-site',
+        'T: VFZSamQwMTZXVE5OZW1NelRsRTlQUT09',
+        'User-Agent: Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36'
+    );
+    
+    $ch = curl_init($url);
+    
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    
+    $response = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+    if ($response["status"] == 200){
+        return array("status" => 200, "data" => array("username" => $response["data"]["username"], "coin" => $response["data"]["coin"], "name" => $response["data"]["name"], "temp-coin" => $response["data"]["temp_coin"]));
+    } else {
+        return array("status" => 401, "data" => array("username" => null, "coin" => null, "name" => null, "temp-coin" => null));
+    }
+}
+function homtoolgolike($banner)
+{
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'LIN') { 
+        @system('clear'); 
+        for($i = 0; $i < strlen($banner); $i++){
+            echo $banner[$i];
+            usleep(2000);
+        }
+    } else { 
+        @system('cls'); 
+        echo $logo;
+    }
+}
+
+function nghingoi($delay) {
+for($tt = $delay ;$tt>= 1;$tt--){
+        echo "\r\033[1;33m   LIÊN GAMING  \033[1;31m ~>       \033[1;32m LO      \033[1;31m | $tt | "; usleep(150000);
+        echo "\r\033[1;31m   LIÊN GAMING  \033[0;33m   ~>     \033[0;37m LOA     \033[0;31m | $tt | "; usleep(150000);
+        echo "\r\033[1;32m   LIÊN GAMING  \033[0;33m     ~>   \033[0;37m LOAD    \033[0;31m | $tt | "; usleep(150000);
+        echo "\r\033[1;34m   LIÊN GAMING  \033[0;33m      ~>  \033[0;37m LOADI   \033[0;31m | $tt | "; usleep(150000);
+        echo "\r\033[1;35m   LIÊN GAMING  \033[0;33m       ~> \033[0;37m LOADIN  \033[0;31m | $tt | "; usleep(150000);
+        echo "\r\033[1;35m   LIÊN GAMING  \033[0;33m       ~> \033[0;37m LOADING \033[0;31m | $tt | "; usleep(150000);
+        echo "\r\033[1;35m   LIÊN GAMING  \033[0;33m        ~>\033[0;37m LOADING.\033[0;31m | $tt | "; usleep(150000);}
+echo "\r\e[1;95m     LIÊN GAMING  VIP                       \r";}
+?>
